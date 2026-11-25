@@ -1,0 +1,39 @@
+{
+  "title": "Dive into the Blue",
+  "instructions": "Point your camera at the framed photo. When it locks on, tap the screen and watch it break open.",
+  "trigger": "assets/beach/poster.jpg",
+  "printWidthMeters": 0.84,
+  "targetsDir": "image-targets",
+  "targetOptions": { "closeRange": true, "closeRangeSize": 0.55, "overlap": 0.3 },
+
+  "ui": { "accent": "#12a0a8" },
+
+  "portal": {
+    "opening": [0.1125, 0.1556, 0.775, 0.5811],
+    "shape": "torn",
+    "torn": { "inset": 0.035, "roughness": 0.045, "squareness": 0.55, "seed": 7 },
+    "paperEdgeColor": "#f6f2ea",
+    "paperEdgeMeters": 0.007,
+    "revealDepthMeters": 0.025,
+    "revealColor": "#cfc6b6",
+    "backgroundColor": "#0b3a4a",
+    "mask": null,
+    "overlay": null
+  },
+
+  "reveal": { "trigger": "tap", "effect": "shatter", "crackSec": 0.7, "flySec": 1.8, "thickness": 0.006 },
+
+  "video": {
+    "src": "assets/beach/video.mp4",
+    "depthMeters": 0.8,
+    "scale": "auto",
+    "offset": [0, 0],
+    "loop": true,
+    "muted": true,
+    "edgeFade": 0.05,
+    "depthMap": { "type": "none" }
+  },
+
+  "particles": { "count": 0 },
+  "layers": []
+}

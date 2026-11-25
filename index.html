@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>AR Portal</title>
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.js" } }
+  </script>
+  <style>
+    :root { --accent: #12a0a8; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #fff; -webkit-user-select: none; user-select: none; }
+    #xr-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+    [hidden] { display: none !important; }
+
+    /* intro card */
+    #overlay { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 28px; text-align: center;
+      color: #111; background: #fff radial-gradient(#0001 1.6px, transparent 1.8px) 0 0 / 18px 18px; }
+    #overlay h1 { margin: 0; font-size: 26px; }
+    #overlay .kicker { font-weight: 700; font-size: 15px; display: flex; gap: 8px; align-items: center; }
+    #overlay .kicker::before { content: "✱"; color: var(--accent); }
+    #thumb { width: min(72vw, 420px); max-height: 42vh; object-fit: contain; border-radius: 6px; box-shadow: 0 10px 30px #0003; }
+    #overlay p { margin: 0; color: #444; max-width: 26em; line-height: 1.45; font-size: 15px; }
+    #start { font: inherit; font-size: 17px; font-weight: 700; padding: 13px 40px; border-radius: 999px; border: 0; background: var(--accent); color: #fff; }
+    #start:disabled { opacity: .4; }
+    #overlay a { color: #555; font-size: 13px; }
+    #status { font-size: 13px; min-height: 1.3em; color: #666; }
+
+    /* scanning guide */
+    #guide { position: fixed; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; pointer-events: none; }
+    #guide .label { font-weight: 700; font-size: 16px; text-shadow: 0 1px 4px #000a; }
+    #guide .label::before { content: "✱ "; color: var(--accent); }
+    #guide-frame { width: min(78vw, 70vh); max-height: 60vh; border: 2px dashed #fffd; border-radius: 10px; box-shadow: 0 0 0 100vmax #0004; animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(.97); border-color: #fff8; } }
+
+    /* tap prompt */
+    #tap { position: fixed; left: 50%; bottom: 0; z-index: 6; transform: translateX(-50%); width: min(120vw, 640px); height: 190px; border-radius: 320px 320px 0 0;
+      background: color-mix(in srgb, var(--accent) 70%, transparent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; pointer-events: none;
+      animation: rise .5s ease-out; }
+    @keyframes rise { from { transform: translate(-50%, 100%); } }
+
+    #note { position: fixed; left: 12px; bottom: 12px; z-index: 5; font-size: 13px; background: #0008; padding: 6px 10px; border-radius: 8px; pointer-events: none; }
+    #sound { position: fixed; right: 12px; bottom: 12px; z-index: 7; font: inherit; font-size: 14px; padding: 8px 16px; border-radius: 999px; border: 0; background: #fffd; color: #111; }
+  </style>
+</head>
+<body>
+  <canvas id="xr-canvas"></canvas>
+
+  <div id="overlay">
+    <h1 id="title">AR Portal</h1>
+    <div class="kicker">Find and scan the poster</div>
+    <img id="thumb" alt="The poster to scan">
+    <p id="subtitle">Point your camera at the poster</p>
+    <button id="start" disabled>Continue</button>
+    <a href="?preview" id="preview">No poster to hand? Preview on this screen</a>
+    <div id="status"></div>
+  </div>
+
+  <div id="guide" hidden><div class="label">Find and scan the poster</div><div id="guide-frame"></div></div>
+  <div id="tap" hidden>Tap the screen to explore</div>
+  <div id="note" hidden></div>
+  <button id="sound" hidden>Sound on</button>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/t0_luminance.jpg",
+  "metadata": null,
+  "name": "t0",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 0,
+    "width": 1350,
+    "height": 1800,
+    "isRotated": false,
+    "originalWidth": 2400,
+    "originalHeight": 1800
+  },
+  "resources": {
+    "originalImage": "t0_original.jpg",
+    "croppedImage": "t0_cropped.jpg",
+    "thumbnailImage": "t0_thumbnail.jpg",
+    "luminanceImage": "t0_luminance.jpg"
+  },
+  "created": 1795606829119,
+  "updated": 1795606829119
+}

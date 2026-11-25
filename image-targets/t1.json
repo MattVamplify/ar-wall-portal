@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/t1_luminance.jpg",
+  "metadata": null,
+  "name": "t1",
+  "type": "PLANAR",
+  "properties": {
+    "left": 525,
+    "top": 0,
+    "width": 1350,
+    "height": 1800,
+    "isRotated": false,
+    "originalWidth": 2400,
+    "originalHeight": 1800
+  },
+  "resources": {
+    "originalImage": "t1_original.jpg",
+    "croppedImage": "t1_cropped.jpg",
+    "thumbnailImage": "t1_thumbnail.jpg",
+    "luminanceImage": "t1_luminance.jpg"
+  },
+  "created": 1795606829225,
+  "updated": 1795606829225
+}

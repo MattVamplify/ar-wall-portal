@@ -1,0 +1,8 @@
+{
+  "installCommand": "echo 'static site, nothing to install'",
+  "buildCommand": "echo 'static site, nothing to build'",
+  "outputDirectory": ".",
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] }
+  ]
+}

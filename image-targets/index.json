@@ -1,0 +1,106 @@
+{
+  "trigger": "assets/beach/poster.jpg",
+  "width": 2400,
+  "height": 1800,
+  "targets": [
+    {
+      "name": "t0",
+      "file": "t0.json",
+      "rect": {
+        "left": 0,
+        "top": 0,
+        "width": 1350,
+        "height": 1800
+      },
+      "level": 1
+    },
+    {
+      "name": "t1",
+      "file": "t1.json",
+      "rect": {
+        "left": 525,
+        "top": 0,
+        "width": 1350,
+        "height": 1800
+      },
+      "level": 1
+    },
+    {
+      "name": "t2",
+      "file": "t2.json",
+      "rect": {
+        "left": 1050,
+        "top": 0,
+        "width": 1350,
+        "height": 1800
+      },
+      "level": 1
+    },
+    {
+      "name": "t3",
+      "file": "t3.json",
+      "rect": {
+        "left": 0,
+        "top": 0,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    },
+    {
+      "name": "t4",
+      "file": "t4.json",
+      "rect": {
+        "left": 694,
+        "top": 0,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    },
+    {
+      "name": "t5",
+      "file": "t5.json",
+      "rect": {
+        "left": 1388,
+        "top": 0,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    },
+    {
+      "name": "t6",
+      "file": "t6.json",
+      "rect": {
+        "left": 0,
+        "top": 451,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    },
+    {
+      "name": "t7",
+      "file": "t7.json",
+      "rect": {
+        "left": 694,
+        "top": 451,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    },
+    {
+      "name": "t8",
+      "file": "t8.json",
+      "rect": {
+        "left": 1388,
+        "top": 451,
+        "width": 1012,
+        "height": 1349
+      },
+      "level": 2
+    }
+  ]
+}

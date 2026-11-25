@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/t6_luminance.jpg",
+  "metadata": null,
+  "name": "t6",
+  "type": "PLANAR",
+  "properties": {
+    "left": 0,
+    "top": 451,
+    "width": 1012,
+    "height": 1349,
+    "isRotated": false,
+    "originalWidth": 2400,
+    "originalHeight": 1800
+  },
+  "resources": {
+    "originalImage": "t6_original.jpg",
+    "croppedImage": "t6_cropped.jpg",
+    "thumbnailImage": "t6_thumbnail.jpg",
+    "luminanceImage": "t6_luminance.jpg"
+  },
+  "created": 1795606829715,
+  "updated": 1795606829715
+}

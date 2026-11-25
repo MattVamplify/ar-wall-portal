@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/t8_luminance.jpg",
+  "metadata": null,
+  "name": "t8",
+  "type": "PLANAR",
+  "properties": {
+    "left": 1388,
+    "top": 451,
+    "width": 1012,
+    "height": 1349,
+    "isRotated": false,
+    "originalWidth": 2400,
+    "originalHeight": 1800
+  },
+  "resources": {
+    "originalImage": "t8_original.jpg",
+    "croppedImage": "t8_cropped.jpg",
+    "thumbnailImage": "t8_thumbnail.jpg",
+    "luminanceImage": "t8_luminance.jpg"
+  },
+  "created": 1795606829889,
+  "updated": 1795606829889
+}

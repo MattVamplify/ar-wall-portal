@@ -1,0 +1,15 @@
+{
+  "name": "ar-wall-portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Web AR portal for posters, walls and billboards: video seen through the print with real parallax. Tracking by the open-source 8th Wall engine.",
+  "scripts": {
+    "targets": "node tools/make-targets.mjs",
+    "start": "npx --yes http-server -c-1 -p 8080 ."
+  },
+  "dependencies": {
+    "@8thwall/image-target-cli": "1.0.0",
+    "sharp": "^0.34.5"
+  }
+}
