@@ -25,7 +25,7 @@ async function init() {
   $('#guide-frame').style.aspectRatio = String(a);
   $('#start').disabled = false;
   $('#start').addEventListener('click', () => (previewOnly ? startPreview() : startAR()).catch(fail));
-  if (window.PORTAL_PREVIEW_ONLY) { show('#preview', false); document.querySelector('.kicker').textContent = 'Interactive preview'; $('#subtitle').textContent = cfg.previewInstructions || 'Tap Continue, then tap the screen to break the photo open. Move your mouse or drag to look around inside.'; }
+  if (window.PORTAL_PREVIEW_ONLY) { show('#preview', false); document.querySelector('.kicker').textContent = 'Interactive preview'; $('#subtitle').textContent = cfg.previewInstructions || 'Tap Continue, then tap the screen to break the photo open. For the full effect with parallax, open this on your phone and point it at the printed poster.'; }
   $('#preview').addEventListener('click', e => { e.preventDefault(); startPreview().catch(fail); });
   if (params.has('preview')) startPreview().catch(fail);
 }
@@ -173,7 +173,7 @@ async function startAR() {
 // Desktop preview: the print on a virtual wall, camera follows the mouse (or phone tilt).
 async function startPreview() {
   show('#overlay', false);
-  $('#note').textContent = window.PORTAL_PREVIEW_ONLY ? 'Drag or move the mouse to look around' : 'Preview: move the mouse (or tilt your phone) to look around';
+  $('#note').textContent = 'Preview. Open on your phone and point it at the poster for the full AR effect.';
   show('#note');
   const aspect = trigger.naturalHeight / trigger.naturalWidth;
   const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: $('#xr-canvas') });
@@ -214,7 +214,6 @@ async function startPreview() {
   const flow = setupRevealFlow(portal);
   setTimeout(() => flow.onFound(), 600);
 
-  const fixed = params.has('x') || params.has('y');
   const target = new THREE.Vector2(+params.get('x') || 0, +params.get('y') || 0);
   // camera distance that fits the whole print on screen, in portrait or landscape
   const fitDist = () => {
@@ -222,16 +221,14 @@ async function startPreview() {
     const v = THREE.MathUtils.degToRad(camera.fov) / 2, h = Math.atan(Math.tan(v) * camera.aspect);
     return Math.max(0.6 / Math.tan(h), (aspect * 0.6) / Math.tan(v), 1.1);
   };
-  let userMoved = fixed;
-  addEventListener('pointermove', e => { userMoved = true; target.set((e.clientX / innerWidth) * 2 - 1, -((e.clientY / innerHeight) * 2 - 1)); });
-  addEventListener('deviceorientation', e => { if (e.gamma == null) return; userMoved = true; target.set(THREE.MathUtils.clamp(e.gamma / 35, -1, 1), THREE.MathUtils.clamp((45 - e.beta) / 35, -1, 1)); });
+  // The on-screen preview is a fixed, straight-on view of the poster: the parallax is only for the
+  // real AR camera. (?x=&y= offsets the view, for testing only.)
   const cur = target.clone();
   const clock = new THREE.Clock();
   let tt = 0;
   const tick = dt => {
     tt += dt;
-    if (!userMoved) target.set(Math.sin(tt * 0.5) * 0.9, Math.sin(tt * 0.37) * 0.4);
-    cur.lerp(target, fixed ? 1 : 0.08);
+    cur.copy(target);
     const dist = fitDist();
     camera.position.set(cur.x * dist * 0.5, cur.y * dist * 0.35, dist);
     camera.lookAt(0, 0, 0);
