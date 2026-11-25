@@ -158,6 +158,9 @@ async function startAR() {
       onException: err => fail(err),
     },
   ]);
+  // The canvas fills the window. Its drawing buffer is in device pixels; its CSS size is pinned by
+  // the stylesheet (!important), because three.js setSize() would otherwise set the CSS size to the
+  // device-pixel size and the view would appear zoomed in by the screen's pixel ratio (2-3x on phones).
   const canvas = $('#xr-canvas');
   const fit = () => { canvas.width = Math.round(innerWidth * devicePixelRatio); canvas.height = Math.round(innerHeight * devicePixelRatio); };
   fit();
